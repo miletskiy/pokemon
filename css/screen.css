@@ -5,11 +5,57 @@ html, body {
 }
 
 h1 {
-  color: red;
   text-align: center;
+  border: solid lightgray 1px;
 }
 
-.container {
+.mainContainer {
   border: solid lightgray 1px;
   width: 768px;
+  margin: 20px auto;
+}
+
+.left-column {
+    /*background-color: lightgray;*/
+}
+.right-column {
+    background-color: lightgreen;
+}
+
+@media (max-width: 768px) {
+    .myClass {
+        width: 98%;
+        margin: 0 1%;
+    }
+}
+
+#header {
+  margin-bottom: 10px;
+}
+
+.item {
+  border: solid black 1px;
+  padding-bottom: 10px;
+}
+
+p {
+  text-align: center;
+  font-weight: bold;
+}
+
+.image {
+  display: block;
+  margin: 7px;
+  width: 90%;
+  margin-bottom: 20px;
+}
+
+.btn-xs {
+  color: black;
+}
+
+.ability {
+  display: inline-block;
+  text-align: center;
+  width: 48%;
 }
