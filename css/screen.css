@@ -43,9 +43,13 @@ h3 {
   padding-bottom: 10px;
 }
 
+
 .details {
-  margin-top: 253px;
+  margin-top: 20px;
   border: solid lightgray 1px;
+  position: fixed;
+  width: 17%;
+  /*display: none;*/
 }
 
 p {
@@ -68,6 +72,7 @@ p {
 
 .btn-xs {
   color: black;
+  width: 84%;
 }
 
 .ability {
@@ -87,8 +92,12 @@ p {
 }
 
 .tableDetails {
-  margin: 20px auto;
+  margin: 10px auto;
   width: 90%
+}
+
+.features {
+  width: 50%;
 }
 
 .loadMore {
