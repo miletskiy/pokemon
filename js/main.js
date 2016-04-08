@@ -1,19 +1,19 @@
 
 var url = 'http://pokeapi.co/api/v1/pokemon/?limit=12';
-// var url = 'http://pokeapi.co/api/v1/pokemon/?limit=12&offset=12';
+// var url = 'http://pokeapi.co/api/v1/pokemon/?limit=12&offset=24';
 var pokemon_data;
+var pokemons;
 
+var $details = $('#details');
 var $12pokemons = $('.item');
-
 var $image = $('.preview');
 var imageUrl = 'http://pokeapi.co/media/img/';
-var $name = $('.details').find('h3');
-
+var $name = $details.find('h3');
 var $previewValues = $('.tableDetails td:odd');
-var pokFeatures = [];
 
 var fruit = {};
-var pokemons;
+var pokFeatures = [];
+
 
 (function takePokemons() {
   $.getJSON(
@@ -54,6 +54,7 @@ var pokemons;
   }).complete(function() {
       console.log('complete');
       $12pokemons.each(function(elm) {
+        $(this).attr('id',elm);
         $(this).find('p').text(fruit[elm][1]);
         $(this).find('.image').attr('src', imageUrl + fruit[elm][0] + '.png');
         var abilities = fruit[elm][2];
@@ -76,8 +77,9 @@ function capitalize(string) {
 }
 
 // take preview for selected Pokemon
-function takePreview(fruit, id) {
+function takePreview(id) {
   pokemon = fruit[id];
+  $('#details').removeClass('no_details').addClass('details');
   $image.attr('src', imageUrl + pokemon[0] + '.png');
   $name.text(pokemon[1]+ ' #' + pokemon[0]);
   fetures = pokemon.slice(2);
@@ -86,17 +88,19 @@ function takePreview(fruit, id) {
   });
 };
 
-// preview single Pokemon
-$('#id_pokemon')
-  .click(function() {
-    takePreview(fruit, 11);
-  });
 
 // load next 12 pokemons
 $('#id_loadmore')
   .click(function() {
-    console.log($12pokemons);
+    console.log(fruit);
   });
+
+
+// wait for click on the pokemon's area
+$12pokemons.on('click', function() {
+  takePreview(this.id);
+});
+
 
 
 $(document).ready(function () {

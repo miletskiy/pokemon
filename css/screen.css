@@ -41,15 +41,18 @@ h3 {
 .item {
   border: solid lightgray 1px;
   padding-bottom: 10px;
+  cursor: pointer;
 }
 
+.no_details {
+  display: none;
+}
 
 .details {
   margin-top: 20px;
   border: solid lightgray 1px;
   position: fixed;
   width: 17%;
-  /*display: none;*/
 }
 
 p {
@@ -111,78 +114,142 @@ p {
   background-color: lime;
   border-color: lime;
 }
+.Flying:hover{
+  background-color: lime;
+  border-color: black;
+}
 
 .Normal{
   background-color: orange;
   border-color: orange;
+}
+.Normal:hover{
+  background-color: orange;
+  border-color: black;
 }
 
 .Bug {
   background-color: gold;
   border-color: gold ;
 }
+.Bug:hover {
+  background-color: gold;
+  border-color: black ;
+}
 
 .Poison {
   background-color: deeppink;
   border-color: deeppink;
+}
+.Poison:hover {
+  background-color: deeppink;
+  border-color: black;
 }
 
 .Water {
   background-color: aqua;
   border-color: aqua;
 }
+.Water:hover {
+  background-color: aqua;
+  border-color: black;
+}
 
 .Fire {
   background-color: orangered;
   border-color: orangered;
+}
+.Fire:hover {
+  background-color: orangered;
+  border-color: black;
 }
 
 .Ground {
   background-color: chocolate;
   border-color: chocolate;
 }
+.Ground:hover {
+  background-color: chocolate;
+  border-color: black;
+}
 
 .Fairy {
   background-color: darkviolet;
   border-color: darkviolet;
+}
+.Fairy:hover {
+  background-color: darkviolet;
+  border-color: black;
 }
 
 .Electric {
   background-color: yellow;
   border-color: yellow;
 }
+.Electric:hover {
+  background-color: yellow;
+  border-color: black;
+}
 
 .Grass {
   background-color: forestgreen;
   border-color: forestgreen;
+}
+.Grass:hover {
+  background-color: forestgreen;
+  border-color: black;
 }
 
 .Fighting {
   background-color: khaki;
   border-color: khaki;
 }
+.Fighting:hover {
+  background-color: khaki;
+  border-color: black;
+}
 
 .Psychic {
   background-color: salmon;
   border-color: salmon;
+}
+.Psychic:hover {
+  background-color: salmon;
+  border-color: black;
 }
 
 .Rock {
   background-color: tan;
   border-color: tan;
 }
+.Rock:hover {
+  background-color: tan;
+  border-color: black;
+}
 
 .Steel {
   background-color: silver;
   border-color: silver;
+}
+.Steel:hover {
+  background-color: silver;
+  border-color: black;
 }
 
 .Ghost {
   background-color: ghostwhite;
   border-color: gainsboro;
 }
+.Ghost:hover {
+  background-color: ghostwhite;
+  border-color: black;
+}
 
 .Ice {
   background-color: dodgerblue;
   border-color: dodgerblue;
+}
+.Ice:hover {
+  background-color: dodgerblue;
+  border-color: black;
 }
