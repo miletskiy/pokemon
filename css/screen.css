@@ -104,3 +104,84 @@ p {
   width: 94%;
   margin: 0 15px;
 }
+
+/* Classes for buttons */
+.flying{
+  background-color: lime;
+  border-color: lime;
+}
+
+.normal{
+  background-color: orange;
+  border-color: orange;
+}
+
+.bug {
+  background-color: gold;
+  border-color: gold ;
+}
+
+.poison {
+  background-color: deeppink;
+  border-color: deeppink;
+}
+
+.water {
+  background-color: aqua;
+  border-color: aqua;
+}
+
+.fire {
+  background-color: orangered;
+  border-color: orangered;
+}
+
+.ground {
+  background-color: chocolate;
+  border-color: chocolate;
+}
+
+.fairy {
+  background-color: darkviolet;
+  border-color: darkviolet;
+}
+
+.electric {
+  background-color: yellow;
+  border-color: yellow;
+}
+
+.grass {
+  background-color: forestgreen;
+  border-color: forestgreen;
+}
+
+.fighting {
+  background-color: khaki;
+  border-color: khaki;
+}
+
+.psychic {
+  background-color: salmon;
+  border-color: salmon;
+}
+
+.rock {
+  background-color: tan;
+  border-color: tan;
+}
+
+.steel {
+  background-color: silver;
+  border-color: silver;
+}
+
+.ghost {
+  background-color: ghostwhite;
+  border-color: gainsboro;
+}
+
+.ice {
+  background-color: dodgerblue;
+  border-color: dodgerblue;
+}
