@@ -1,6 +1,6 @@
 
 var url = 'http://pokeapi.co/api/v1/pokemon/?limit=12';
-// var url = 'http://pokeapi.co/api/v1/pokemon/?limit=12&offset=108';
+// var url = 'http://pokeapi.co/api/v1/pokemon/?limit=12&offset=12';
 var pokemon_data;
 
 var $12pokemons = $('.item');
@@ -30,10 +30,11 @@ var pokemons;
         var pkdx_id = pokemon.pkdx_id;
         var name = pokemon.name;
         if (pokemon.types.length === 1) {
-          var types = pokemon.types[0].name;
+          var types = capitalize(pokemon.types[0].name);
         }else{
           var types = [];
-          types.push(pokemon.types[0].name, pokemon.types[1].name);
+          types.push(capitalize(pokemon.types[0].name),
+              ' ' + capitalize(pokemon.types[1].name));
         };
         var attack = pokemon.attack;
         var defense = pokemon.defense;
@@ -68,23 +69,33 @@ var pokemons;
   });
 })()
 
-function takePreview(pokemons, pokemon) {
-  $image.attr('src', imageUrl + pokemon.pkdx_id + '.png');
-  $name.text(pokemon.name + ' #' + pokemon.pkdx_id);
+// capitalize string
+function capitalize(string) {
+  var result = string.charAt(0).toUpperCase() + string.substr(1);
+  return result;
+}
+
+// take preview for selected Pokemon
+function takePreview(fruit, id) {
+  pokemon = fruit[id];
+  $image.attr('src', imageUrl + pokemon[0] + '.png');
+  $name.text(pokemon[1]+ ' #' + pokemon[0]);
+  fetures = pokemon.slice(2);
   $previewValues.each(function(elm) {
-      $(this).text(pokFeatures[elm]);
+    $(this).text(fetures[elm]);
   });
 };
 
 // preview single Pokemon
 $('#id_pokemon')
   .click(function() {
-  takePreview(pokemons, pokemon);
-});
+    takePreview(fruit, 11);
+  });
 
+// load next 12 pokemons
 $('#id_loadmore')
   .click(function() {
-      console.log($12pokemons);
+    console.log($12pokemons);
   });
 
 
