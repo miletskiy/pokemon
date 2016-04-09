@@ -253,3 +253,21 @@ p {
   background-color: dodgerblue;
   border-color: black;
 }
+
+.Dragon {
+  background-color: olive;
+  border-color: olive;
+}
+.Dragon:hover {
+  background-color: olive;
+  border-color: black;
+}
+
+.Dark {
+  background-color: dimgrey;
+  border-color: dimgrey;
+}
+.Dark:hover {
+  background-color: dimgrey;
+  border-color: black;
+}

@@ -13,10 +13,11 @@ function getNextUrl(mainDomain, nextUrl) {
   return url;
 };
 
+
 // get juicy data from pokemons general data
-var fruit = {};
-var pokFeatures = [];
 function getFruit(pokemons) {
+  var pokFeatures = [];
+  var fruit = [];
   for(i in pokemons) {
     pokemon = pokemons[i];
     var pkdx_id = pokemon.pkdx_id;
@@ -37,37 +38,44 @@ function getFruit(pokemons) {
     var weight = pokemon.weight;
     var totalMoves = pokemon.moves.length;
 
-    pokFeatures.push(pkdx_id, name, types, attack, defense, hp, spAttack,
-      spDefense,speed,weight, totalMoves);
+    pokFeatures.push(pkdx_id, name, types, attack, defense, hp,
+                     spAttack, spDefense, speed, weight, totalMoves);
     fruit[i] = pokFeatures;
     pokFeatures = [];
   };
+
+  return fruit;
 };
 
-// fill html juicy data
-var $12pokemons = $('.item');
-function fillPokemons() {
-  $12pokemons.each(function(elm) {
+
+// fill html with juicy data
+function fillPokemons(fruit, objectPokemons) {
+  objectPokemons.each(function(elm) {
     $(this).attr('id',elm);
     $(this).find('p').text(fruit[elm][1]);
     $(this).find('.image').attr('src', imageUrl + fruit[elm][0] + '.png');
     var abilities = fruit[elm][2];
     if (abilities.length === 2) {
-      $(this).find('.ability').clone().appendTo($(this));
-      $(this).find('button').addClass(abilities[0]).text(abilities[0]);
-      $(this).find('button:last').addClass(abilities[1])
-        .removeClass(abilities[0]).text(abilities[1]);
+          // need refactoring
+      if ($(this).find('.ability').length !== 2) {
+            $(this).find('.ability').clone().appendTo($(this));
+            $(this).find('button').addClass(abilities[0]).text(abilities[0]);
+            $(this).find('button:last').addClass(abilities[1])
+              .removeClass(abilities[0]).text(abilities[1]);
+      }
     } else {
       $(this).find('button').addClass(abilities).text(abilities);
       };
   });
 };
 
-//load general pokemons data
+
+//load general pokemons data and put it on the main page
+var pokemons;
+var fruit = [];
+var $itemPokemons = $('.item');
 function getPokemons() {
   var url = getNextUrl(mainDomain, nextUrl);
-  // console.log(url);
-  // console.log('url1');
 
   $.getJSON(
     url,
@@ -79,10 +87,21 @@ function getPokemons() {
       console.log('done');
   }).complete(function() {
       console.log('complete');
-      getFruit(pokemons);
-      fillPokemons();
+
+    var getF = getFruit(pokemons);
+    [].push.apply(fruit, getF);
+
+    $itemPokemons = $('.item');
+    fillPokemons(fruit, $itemPokemons);
+
+    // wait for click on the pokemon's area
+    $itemPokemons.on('click', function() {
+      getPreview(this.id);
+    });
+
   });
 };
+
 
 // get preview for selected Pokemon
 var $details = $('#details');
@@ -101,16 +120,15 @@ function getPreview(id) {
   });
 };
 
+
 // load next 12 pokemons
+var pokemonsContainer = $('.pokemons-container');
+var $clone = pokemonsContainer.clone();
 $('#id_loadmore')
   .click(function() {
-    console.log(fruit);
+    pokemonsContainer.append($clone.html());
+    getPokemons();
   });
-
-// wait for click on the pokemon's area
-$12pokemons.on('click', function() {
-  getPreview(this.id);
-});
 
 
 $(document).ready(function () {
