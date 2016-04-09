@@ -10,17 +10,8 @@ h1 {
 }
 
 .mainContainer {
-  /*border: solid lightgray 1px;*/
   width: 768px;
   margin: 20px auto;
-}
-
-.left-column {
-    /*background-color: lightgray;*/
-}
-
-.right-column {
-    /*background-color: lightgreen;*/
 }
 
 @media (max-width: 768px) {
@@ -88,8 +79,8 @@ h3 {
 
 .preview {
   display: block;
-  margin: 7px;
-  width: 94%;
+  margin: 0 auto;
+  width: 76%;
 }
 
 .table, th, td {
