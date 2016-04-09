@@ -1,4 +1,5 @@
 
+disablePage();
 // capitalize string
 function capitalize(string) {
   var result = string.charAt(0).toUpperCase() + string.substr(1);
@@ -99,6 +100,13 @@ function getPokemons() {
       getPreview(this.id);
     });
 
+    // disable preview function on the pokemon's buttons
+    $('.btn').on('click', function(event) {
+      event.stopPropagation();
+    })
+
+    enablePage();
+
   });
 };
 
@@ -126,9 +134,27 @@ var pokemonsContainer = $('.pokemons-container');
 var $clone = pokemonsContainer.clone();
 $('#id_loadmore')
   .click(function() {
+    disablePage();
     pokemonsContainer.append($clone.html());
     getPokemons();
   });
+
+
+// disable page while loading data
+function disablePage() {
+    $('#id_loadmore').attr('disabled',true);
+    $('#id_indicator').slideDown();
+    $('#id_background_layer').show();
+};
+
+
+// enable page after loading data
+function enablePage() {
+    $('#id_loadmore').removeAttr('disabled');
+    $('#id_indicator').slideUp('fast');
+    $('#id_background_layer').hide();
+};
+
 
 
 $(document).ready(function () {

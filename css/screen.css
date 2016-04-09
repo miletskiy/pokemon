@@ -78,6 +78,10 @@ p {
   width: 84%;
 }
 
+.btn-xs:hover {
+  color: white;
+}
+
 .ability {
   display: inline-block;
   text-align: center;
@@ -108,6 +112,31 @@ p {
   margin: 0 15px;
 }
 
+/* Enable/disable function */
+#id_indicator  {
+  display: none;
+  position: fixed;
+  left: 42%;
+  top: 42%;
+  color: tomato;
+  font-size: larger;
+  text-align: center;
+  padding: 10px 15px 1px;
+  background: #fff;
+  z-index: 25;
+}
+
+#id_background_layer {
+  display: none;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  z-index: 15;
+  width: 100%;
+  height: 100%;
+  background: grey;
+  opacity: 0.42;
+}
 
 /* Classes for buttons */
 .Flying{
