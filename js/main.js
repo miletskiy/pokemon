@@ -1,5 +1,6 @@
 
 disablePage();
+
 // capitalize string
 function capitalize(string) {
   var result = string.charAt(0).toUpperCase() + string.substr(1);
@@ -15,7 +16,6 @@ function getNextUrl(mainDomain, nextUrl) {
   var url = mainDomain + nextUrl;
   return url;
 };
-
 
 // get juicy data from pokemons general data
 function getFruit(pokemons) {
@@ -50,7 +50,6 @@ function getFruit(pokemons) {
   return fruit;
 };
 
-
 // fill html with juicy data
 function fillPokemons(fruit, objectPokemons) {
   objectPokemons.each(function(elm) {
@@ -71,7 +70,6 @@ function fillPokemons(fruit, objectPokemons) {
       };
   });
 };
-
 
 //load general pokemons data and put it on the main page
 var pokemons;
@@ -106,30 +104,41 @@ function getPokemons() {
     $('.btn').on('click', function(event) {
       event.stopPropagation();
     })
-
     enablePage();
-
   });
 };
 
+// add zero to Pokemon id
+function getPokemonNumber(number) {
+  var result;
+  number = number+'';
+  if (number.length === 1) {
+    result = '00' + number;
+  } else if (number.length === 2) {
+    result = '0' + number;
+  }  else {
+    result = number;
+  }
+  return result;
+}
 
 // get preview for selected Pokemon
-var $details = $('#details');
+var $details = $('.details');
 var $image = $('.preview');
 var imageUrl = 'http://pokeapi.co/media/img/';
 var $name = $details.find('h3');
 var $previewValues = $('.tableDetails td:odd');
 function getPreview(id) {
   pokemon = fruit[id];
-  $('#details').removeClass('no_details').addClass('details');
+  $details.slideDown();
   $image.attr('src', imageUrl + pokemon[0] + '.png');
-  $name.text(pokemon[1]+ ' #' + pokemon[0]);
+  var pokemonNumber = getPokemonNumber(pokemon[0]);
+  $name.text(pokemon[1]+ ' #' + pokemonNumber);
   fetures = pokemon.slice(2);
   $previewValues.each(function(elm) {
     $(this).text(fetures[elm]);
   });
 };
-
 
 // load next 12 pokemons
 var pokemonsContainer = $('.pokemons-container');
@@ -141,7 +150,6 @@ $('#id_loadmore')
     getPokemons();
   });
 
-
 // disable page while loading data
 function disablePage() {
     $('#id_loadmore').attr('disabled',true);
@@ -149,15 +157,12 @@ function disablePage() {
     $('#id_background_layer').show();
 };
 
-
 // enable page after loading data
 function enablePage() {
     $('#id_loadmore').removeAttr('disabled');
     $('#id_indicator').slideUp('fast');
     $('#id_background_layer').hide();
 };
-
-
 
 $(document).ready(function () {
   getPokemons();
