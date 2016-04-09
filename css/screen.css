@@ -140,57 +140,57 @@ p {
 
 /* Classes for buttons */
 .Flying{
-  background-color: lime;
-  border-color: lime;
+  background-color: yellowgreen;
+  border-color: yellowgreen;
 }
 .Flying:hover{
-  background-color: lime;
-  border-color: black;
+  background-color: yellowgreen;
+  border-color: none;
 }
 
 .Normal{
-  background-color: orange;
-  border-color: orange;
+  background-color: bisque;
+  border-color: bisque;
 }
 .Normal:hover{
-  background-color: orange;
-  border-color: black;
+  background-color: bisque;
+  border-color: none;
 }
 
 .Bug {
-  background-color: gold;
-  border-color: gold ;
+  background-color: orchid;
+  border-color: orchid ;
 }
 .Bug:hover {
-  background-color: gold;
-  border-color: black ;
+  background-color: orchid;
+  border-color: none ;
 }
 
 .Poison {
-  background-color: deeppink;
-  border-color: deeppink;
+  background-color: hotpink;
+  border-color: hotpink;
 }
 .Poison:hover {
-  background-color: deeppink;
-  border-color: black;
+  background-color: hotpink;
+  border-color: none;
 }
 
 .Water {
-  background-color: aqua;
-  border-color: aqua;
+  background-color: dodgerblue;
+  border-color: dodgerblue;
 }
 .Water:hover {
-  background-color: aqua;
-  border-color: black;
+  background-color: dodgerblue;
+  border-color: none;
 }
 
 .Fire {
-  background-color: orangered;
-  border-color: orangered;
+  background-color: tomato;
+  border-color: tomato;
 }
 .Fire:hover {
-  background-color: orangered;
-  border-color: black;
+  background-color: tomato;
+  border-color: none;
 }
 
 .Ground {
@@ -199,52 +199,52 @@ p {
 }
 .Ground:hover {
   background-color: chocolate;
-  border-color: black;
+  border-color: none;
 }
 
 .Fairy {
-  background-color: darkviolet;
-  border-color: darkviolet;
+  background-color: mediumpurple;
+  border-color: mediumpurple;
 }
 .Fairy:hover {
-  background-color: darkviolet;
-  border-color: black;
+  background-color: mediumpurple;
+  border-color: none;
 }
 
 .Electric {
-  background-color: yellow;
-  border-color: yellow;
+  background-color: gold;
+  border-color: gold;
 }
 .Electric:hover {
-  background-color: yellow;
-  border-color: black;
+  background-color: gold;
+  border-color: none;
 }
 
 .Grass {
-  background-color: forestgreen;
-  border-color: forestgreen;
+  background-color: limegreen;
+  border-color: limegreen;
 }
 .Grass:hover {
-  background-color: forestgreen;
-  border-color: black;
+  background-color: limegreen;
+  border-color: none;
 }
 
 .Fighting {
-  background-color: khaki;
-  border-color: khaki;
+  background-color: darkkhaki;
+  border-color: darkkhaki;
 }
 .Fighting:hover {
-  background-color: khaki;
-  border-color: black;
+  background-color: darkkhaki;
+  border-color: none;
 }
 
 .Psychic {
-  background-color: salmon;
-  border-color: salmon;
+  background-color: aquamarine;
+  border-color: aquamarine;
 }
 .Psychic:hover {
-  background-color: salmon;
-  border-color: black;
+  background-color: aquamarine;
+  border-color: none;
 }
 
 .Rock {
@@ -253,7 +253,7 @@ p {
 }
 .Rock:hover {
   background-color: tan;
-  border-color: black;
+  border-color: none;
 }
 
 .Steel {
@@ -262,7 +262,7 @@ p {
 }
 .Steel:hover {
   background-color: silver;
-  border-color: black;
+  border-color: none;
 }
 
 .Ghost {
@@ -271,16 +271,16 @@ p {
 }
 .Ghost:hover {
   background-color: ghostwhite;
-  border-color: black;
+  border-color: none;
 }
 
 .Ice {
-  background-color: dodgerblue;
-  border-color: dodgerblue;
+  background-color: deepskyblue;
+  border-color: deepskyblue;
 }
 .Ice:hover {
-  background-color: dodgerblue;
-  border-color: black;
+  background-color: deepskyblue;
+  border-color: none;
 }
 
 .Dragon {
@@ -289,7 +289,7 @@ p {
 }
 .Dragon:hover {
   background-color: olive;
-  border-color: black;
+  border-color: none;
 }
 
 .Dark {
@@ -298,5 +298,5 @@ p {
 }
 .Dark:hover {
   background-color: dimgrey;
-  border-color: black;
+  border-color: none;
 }

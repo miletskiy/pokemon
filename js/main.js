@@ -8,7 +8,9 @@ function capitalize(string) {
 
 // get next url for pokemons load
 var mainDomain = 'http://pokeapi.co/';
-var nextUrl = '/api/v1/pokemon/?limit=12';
+var offset = '';
+// offset = '&offset=500';
+var nextUrl = '/api/v1/pokemon/?limit=12' + offset;
 function getNextUrl(mainDomain, nextUrl) {
   var url = mainDomain + nextUrl;
   return url;
