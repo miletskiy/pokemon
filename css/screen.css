@@ -5,11 +5,284 @@ html, body {
 }
 
 h1 {
-  color: red;
   text-align: center;
+  border: solid lightgray 1px;
 }
 
-.container {
-  border: solid lightgray 1px;
+.mainContainer {
   width: 768px;
+  margin: 20px auto;
+}
+
+@media (max-width: 768px) {
+    .mainContainer {
+        width: 98%;
+        margin: 0 1%;
+    }
+}
+
+/*Pokemons rows*/
+.pokemonRow {
+  margin: 20px auto;
+}
+
+.item {
+  border: solid lightgray 1px;
+  padding-bottom: 10px;
+  cursor: pointer;
+}
+
+.image {
+  display: block;
+  margin: 7px;
+  width: 90%;
+  margin-bottom: 20px;
+}
+
+p {
+  text-align: center;
+  font-weight: bold;
+}
+
+.ability {
+  display: inline-block;
+  text-align: center;
+  width: 48%;
+}
+
+.btn-xs {
+  color: black;
+  width: 84%;
+}
+.btn-xs:hover {
+  color: white;
+}
+
+.loadMore {
+  width: 94%;
+  margin: 0 15px;
+}
+
+/*Details preview*/
+h3 {
+  text-align: center;
+  font-weight: bold;
+}
+
+.details {
+  display: none;
+  margin-top: 20px;
+  border: solid lightgray 1px;
+  position: fixed;
+  width: 17%;
+}
+
+.preview {
+  display: block;
+  margin: 0 auto;
+  width: 76%;
+}
+
+.table, th, td {
+  border: solid lightgray 1px;
+  text-align: center;
+  padding: 3px;
+}
+
+.tableDetails {
+  margin: 10px auto;
+  width: 90%
+}
+
+.features {
+  width: 46%;
+}
+
+/* Enable/disable function */
+#id_indicator  {
+  display: none;
+  position: fixed;
+  left: 42%;
+  top: 42%;
+  color: tomato;
+  font-size: larger;
+  text-align: center;
+  padding: 10px 15px 1px;
+  background: #fff;
+  z-index: 25;
+}
+
+#id_background_layer {
+  display: none;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  z-index: 15;
+  width: 100%;
+  height: 100%;
+  background: grey;
+  opacity: 0.42;
+}
+
+/* Classes for buttons */
+.Flying{
+  background-color: yellowgreen;
+  border-color: yellowgreen;
+}
+.Flying:hover{
+  background-color: yellowgreen;
+  border-color: none;
+}
+
+.Normal{
+  background-color: bisque;
+  border-color: bisque;
+}
+.Normal:hover{
+  background-color: bisque;
+  border-color: none;
+}
+
+.Bug {
+  background-color: orchid;
+  border-color: orchid ;
+}
+.Bug:hover {
+  background-color: orchid;
+  border-color: none ;
+}
+
+.Poison {
+  background-color: hotpink;
+  border-color: hotpink;
+}
+.Poison:hover {
+  background-color: hotpink;
+  border-color: none;
+}
+
+.Water {
+  background-color: dodgerblue;
+  border-color: dodgerblue;
+}
+.Water:hover {
+  background-color: dodgerblue;
+  border-color: none;
+}
+
+.Fire {
+  background-color: tomato;
+  border-color: tomato;
+}
+.Fire:hover {
+  background-color: tomato;
+  border-color: none;
+}
+
+.Ground {
+  background-color: chocolate;
+  border-color: chocolate;
+}
+.Ground:hover {
+  background-color: chocolate;
+  border-color: none;
+}
+
+.Fairy {
+  background-color: mediumpurple;
+  border-color: mediumpurple;
+}
+.Fairy:hover {
+  background-color: mediumpurple;
+  border-color: none;
+}
+
+.Electric {
+  background-color: gold;
+  border-color: gold;
+}
+.Electric:hover {
+  background-color: gold;
+  border-color: none;
+}
+
+.Grass {
+  background-color: limegreen;
+  border-color: limegreen;
+}
+.Grass:hover {
+  background-color: limegreen;
+  border-color: none;
+}
+
+.Fighting {
+  background-color: darkkhaki;
+  border-color: darkkhaki;
+}
+.Fighting:hover {
+  background-color: darkkhaki;
+  border-color: none;
+}
+
+.Psychic {
+  background-color: aquamarine;
+  border-color: aquamarine;
+}
+.Psychic:hover {
+  background-color: aquamarine;
+  border-color: none;
+}
+
+.Rock {
+  background-color: tan;
+  border-color: tan;
+}
+.Rock:hover {
+  background-color: tan;
+  border-color: none;
+}
+
+.Steel {
+  background-color: silver;
+  border-color: silver;
+}
+.Steel:hover {
+  background-color: silver;
+  border-color: none;
+}
+
+.Ghost {
+  background-color: ghostwhite;
+  border-color: gainsboro;
+}
+.Ghost:hover {
+  background-color: ghostwhite;
+  border-color: none;
+}
+
+.Ice {
+  background-color: deepskyblue;
+  border-color: deepskyblue;
+}
+.Ice:hover {
+  background-color: deepskyblue;
+  border-color: none;
+}
+
+.Dragon {
+  background-color: olive;
+  border-color: olive;
+}
+.Dragon:hover {
+  background-color: olive;
+  border-color: none;
+}
+
+.Dark {
+  background-color: dimgrey;
+  border-color: dimgrey;
+}
+.Dark:hover {
+  background-color: dimgrey;
+  border-color: none;
 }
