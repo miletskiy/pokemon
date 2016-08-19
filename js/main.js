@@ -8,12 +8,13 @@ function capitalize(string) {
 };
 
 // get next url for pokemons load
-var mainDomain = 'http://pokeapi.co/';
+var baseUrl = 'http://pokeapi.co';
 var offset = '';
 // offset = '&offset=500';
 var nextUrl = '/api/v1/pokemon/?limit=12' + offset;
-function getNextUrl(mainDomain, nextUrl) {
-  var url = mainDomain + nextUrl;
+
+function getNextUrl(baseUrl, nextUrl) {
+  var url = baseUrl + nextUrl;
   return url;
 };
 
@@ -40,9 +41,10 @@ function getFruit(pokemons) {
     var speed = pokemon.speed;
     var weight = pokemon.weight;
     var totalMoves = pokemon.moves.length;
+    var spritesUrl = pokemon['sprites'][0]['resource_uri'];
 
     pokFeatures.push(pkdx_id, name, types, attack, defense, hp,
-                     spAttack, spDefense, speed, weight, totalMoves);
+                     spAttack, spDefense, speed, weight, totalMoves, spritesUrl);
     fruit[i] = pokFeatures;
     pokFeatures = [];
   };
@@ -50,15 +52,30 @@ function getFruit(pokemons) {
   return fruit;
 };
 
+
+// get image urls from sprites
+function getUrlImage(url) {
+  var urlImage;
+  $.ajaxSettings.async = false;
+  $.getJSON(url, function(data) {
+    urlImage = data.image;
+  });
+  return urlImage;
+};
+
+
 // fill html with juicy data
 function fillPokemons(fruit, objectPokemons) {
   objectPokemons.each(function(elm) {
+    var spriteUrl = baseUrl + fruit[elm][11];
+    var imageSpriteUrl = getUrlImage(spriteUrl);
+
     $(this).attr('id',elm);
     $(this).find('p').text(fruit[elm][1]);
-    $(this).find('.image').attr('src', imageUrl + fruit[elm][0] + '.png');
+    $(this).find('.image').attr('src', baseUrl + imageSpriteUrl );
+
     var abilities = fruit[elm][2];
     if (abilities.length === 2) {
-          // need refactoring
       if ($(this).find('.ability').length !== 2) {
             $(this).find('.ability').clone().appendTo($(this));
             $(this).find('button').addClass(abilities[0]).text(abilities[0]);
@@ -71,12 +88,13 @@ function fillPokemons(fruit, objectPokemons) {
   });
 };
 
+
 //load general pokemons data and put it on the main page
 var pokemons;
 var fruit = [];
 var $itemPokemons = $('.item');
 function getPokemons() {
-  var url = getNextUrl(mainDomain, nextUrl);
+  var url = getNextUrl(baseUrl, nextUrl);
 
   $.getJSON(
     url,
@@ -94,12 +112,10 @@ function getPokemons() {
 
     $itemPokemons = $('.item');
     fillPokemons(fruit, $itemPokemons);
-
     // wait for click on the pokemon's area
     $itemPokemons.on('click', function() {
       getPreview(this.id);
     });
-
     // disable preview function on the pokemon's buttons
     $('.btn').on('click', function(event) {
       event.stopPropagation();
@@ -128,10 +144,15 @@ var $image = $('.preview');
 var imageUrl = 'http://pokeapi.co/media/img/';
 var $name = $details.find('h3');
 var $previewValues = $('.tableDetails td:odd');
+
 function getPreview(id) {
   pokemon = fruit[id];
+  var spriteUrl = baseUrl + pokemon[11];
+  var imageSpriteUrl = getUrlImage(spriteUrl);
+
   $details.slideDown();
-  $image.attr('src', imageUrl + pokemon[0] + '.png');
+  $image.attr('src', baseUrl + imageSpriteUrl);
+
   var pokemonNumber = getPokemonNumber(pokemon[0]);
   $name.text(pokemon[1]+ ' #' + pokemonNumber);
   fetures = pokemon.slice(2);
